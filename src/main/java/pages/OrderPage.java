@@ -1,8 +1,7 @@
-package Pages;
+package pages;
 
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.*;
-
 import static org.hamcrest.CoreMatchers.is;
 
 public class OrderPage {
@@ -72,6 +71,10 @@ public class OrderPage {
         driver.findElement(commentary).sendKeys(comment);
         driver.findElement(buttonOrder).click();
         driver.findElement(buttonYes).click();
+    }
+
+    // метод проверки того что заказ был оформлен
+    public void checkOrderVerificationCompleted() {
         MatcherAssert.assertThat("Заказ оформлен", is(driver.findElement(textSuccess).getText()));
     }
 
